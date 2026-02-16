@@ -5,19 +5,19 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --background: #ffffff;
+  --foreground: #111111;
+  --accent: #ff4d94;        /* 亮丽的霓虹粉：用于链接、按钮悬停和重要强调 */
+  --muted: #fdf2f8;         /* 极淡的粉色背景：用于代码块或引言的背景 */
+  --border: #fbcfe8;        /* 柔和的粉色边框 */
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #ff71ad;        /* 稍浅的粉色：在黑底上更亮眼，不易产生视觉残影 */
+  --muted: #1f1218;         /* 深紫色调的黑粉：用于暗色模式下的区块区分 */
+  --border: #3d202d;        /* 暗粉色边框：低调但富有质感 */
 }
 
 @theme inline {

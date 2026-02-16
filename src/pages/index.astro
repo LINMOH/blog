@@ -24,7 +24,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        Bcamy
       </h1>
       <a
         target="_blank"
@@ -42,30 +42,36 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I am a <strong>Grade 9 student developer</strong> based in Jinan, China, who treats computing as a lifelong craft. 
+        In an environment where formal CS education was scarce, I forged my own path through curiosity—navigating the realms of Linux, systems architecture, and backend development.
+      </p>
+      <p>
+        I no longer view learning as a race, but as a sustainable journey fueled by discipline. Whether it's optimizing <strong>Go</strong> services, diving into <strong>RUST</strong> fundamentals, or managing my <strong>Arch Linux</strong> environment, I build with the quiet confidence that I'll be in front of this screen for decades to come.
       </p>
       <p class="mt-2">
-        Read the blog posts or check
+        I co-founded 
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="https://github.com/LINMOH"
         >
-          README
-        </LinkButton> for more info.
+          TATEN
+        </LinkButton>, 
+        a student-led technical team. Explore my 
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/posts"
+        >
+          blogs
+        </LinkButton> 
+        for technical insights, or check the 
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="https://linmohan.net/"
+        >
+          website
+        </LinkButton>
+        to see my 7-year coding timeline.
       </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
 
     {
       featuredPosts.length > 0 && (
@@ -106,6 +112,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         <IconArrowRight class="inline-block rtl:-rotate-180" />
       </LinkButton>
     </div>
+    </section>
   </main>
   <Footer />
 </Layout>
