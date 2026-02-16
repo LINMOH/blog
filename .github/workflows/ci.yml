@@ -1,50 +1,58 @@
-name: CI
+name: CI & Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
-
-on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
-  workflow_call:
+  pages: write      # 必须：用于发布到 Pages
+  id-token: write   # 必须：用于身份验证
 
 jobs:
   build:
     name: Code standards & build
     runs-on: ubuntu-latest
-    timeout-minutes: 3
-
-    strategy:
-      matrix:
-        node-version: [20]
+    timeout-minutes: 5
 
     steps:
       - name: "☁️ Checkout repository"
         uses: actions/checkout@v4
 
-      - name: "📦 Install pnpm"
-        uses: pnpm/action-setup@v4
+      - name: "🍞 Setup Bun"
+        uses: oven-sh/setup-bun@v2
         with:
-          version: 10.11.1
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          bun-version: latest # 或者指定版本如 1.1.0
 
       - name: "📦 Install dependencies"
-        run: pnpm install
+        run: bun install --frozen-lockfile
 
       - name: "🔎 Lint code"
-        run: pnpm run lint
+        run: bun run lint
 
       - name: "📝 Checking code format"
-        run: pnpm run format:check
+        run: bun run format:check
 
       - name: "🚀 Build the project"
-        run: pnpm run build
+        run: bun run build
+
+      - name: "📤 Upload artifact"
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: "🚀 Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
