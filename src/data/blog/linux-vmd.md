@@ -1,3 +1,17 @@
+---
+title: Linux 在 Intel VMD 的驱动 bug
+pubDatetime: 2026-02-27T00:00:00+08:00
+description: "本文记录了一次针对 Intel VMD 驱动 Bug 的深度修复过程。针对 Arrow Lake 平台下总线偏移识别异常、资源阈值过高及 PCI 类代码错误等问题，作者通过修改内核源码实现了硬件成功驱动，并探讨了当前 Linux 内核在消费级新硬件适配上的滞后现状。"
+author: Bcamy
+slug: linux-vmd
+featured: true
+draft: false
+tags:
+  - Linux
+  - Intel
+  - Bug
+---
+
 我在linux想要挂载intel的sata raid阵列时发现：
 
 ```bash
@@ -1262,7 +1276,9 @@ MODULE_DESCRIPTION("Volume Management Device driver");
 MODULE_LICENSE("GPL v2");
 MODULE_VERSION("0.6");
 ```
+
 这回开机，发现：
+
 ```bash
 ~ ❯ sudo dmesg | grep -i vmd
 [    0.000000] Command line: initrd=\intel-ucode.img initrd=\initramfs-linux-vmd.img root=PARTUUID=3632df61-58f0-4c82-964f-37a900097e1b zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs
@@ -1325,5 +1341,42 @@ PCI 规范规定总线号最大只能是 255。0x11E 已经超出了协议极限
 也就是说，虽然 root bus 建立了，但它没有任何有效的总线号资源，所以扫描不到任何设备。
 
 做到这里，我意识到这个问题单凭我自己大概是解决不了了，于是，我[反馈了这个 bug](https://bugzilla.kernel.org/show_bug.cgi?id=221137)。
+
+到这里，我对 Linux 内核作出了以下修改：
+
+1. 硬件 ID 补完
+	将 Arrow Lake PCH 的硬件 ID 0x09ab 手动加入了驱动的支持列表 vmd_ids[]。
+2. 资源阈值特赦 (解决 Error -12)
+	重写了 vmd_probe 的资源校验逻辑：
+	1. 取消强制对齐：清除 IORESOURCE_SIZEALIGN 标志位。
+	2.  动态调整阈值：针对 0x09ab，将最低内存要求从 1MB (1<<20) 降至 64KB (1<<16)。
+3. 身份强转与保底映射
+	1. 类代码修正：在探测阶段，强制将设备的 Class 修改为 PCI_CLASS_STORAGE_RAID，确保子设备能被正确枚举。
+	2. 手动 ioremap：如果托管型的 pcim_iomap 失败，通过原生的 ioremap 强行建立物理地址到内核虚拟地址的映射。
+
+并且，我发现，Linux 内核存在一下缺陷：
+
+- 硬编码门槛过高：驱动中 1 << 20 (1MB) 的硬性限制是基于旧服务器平台的假设。在移动端和最新的消费级 PCH 上，这种假设已经过时，缺乏灵活性。
+- 对非标准对齐的容忍度低：内核资源管理层倾向于“优雅的对齐”，而在面对“不守规矩”的 BIOS 分配时，缺乏自动回退机制（Fallback）。
+- 探测机制滞后：VMD 作为一个硬盘控制器，其背后的枚举逻辑（子总线分配）过于依赖 BIOS 预留的 Bus 范围。如果 BIOS 给的 Bus Range 不够，驱动会发生 BUS RANGE OVERFLOW。
+- 驱动响应迟钝：Intel 的新硬件已经上市，但主线内核对特定 ID 的资源特性（如 64KB 窗口）仍未内置特例处理。
+
+并且，我也很好奇，Arrow Lake 作为在 24 年第四季度上市的"老产品"，竟然出现了驱动完全没跑起来的情况，在内核里看不到半点针对 Arrow Lake 的 vmd 等的适配，并且，这个问题并非没有人注意到，请看：[[传送门]](https://bugs.launchpad.net/ubuntu/+source/linux-oem-6.11/+bug/2085853)
+
+在 Ubuntu，AceLan Kao 第一时间发现了这个 bug，并且给出了修改。但是，Ubuntu 开发者对此的回应是：
+
+> The patches didn't find its way to the upstream, and the VMD on PCH feature is minor, so set to won't fix for new kernels.
+> 
+> Users won't be impacted if this feature is no available.
+> 
+> They can use VMD feature by plugg'd the nvme on the m.2 slot from CPU.
+> 
+> If the m.2 slot is from PCH, they need to change the storage type to AHCI from the BIOS menu.
+>
+> We don't want to carry those patches in ubuntu kernels until the patches have been accepted by the upstream.
+
+Ubuntu 对此的态度竟然是摆烂，有点无语。
+
+就写到这里了，好久没更新了。
 
 （哈哈，又水了一篇）
