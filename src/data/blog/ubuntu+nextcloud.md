@@ -6,7 +6,7 @@ description: "本文记录了我在旧电脑上搭建 Ubuntu Server 24.04 并安
 author: Bcamy
 slug: ubuntuandnextcloud
 featured: false
-draft: false
+draft: true
 tags:
   - Computer Science
 ---

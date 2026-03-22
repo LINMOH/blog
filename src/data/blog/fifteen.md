@@ -5,7 +5,7 @@ description: "我回顾了自己十五年的成长，分享了性格特点、学
 author: Bcamy
 slug: fifteen
 featured: true
-draft: false
+draft: true
 tags:
   - Think
 ---
