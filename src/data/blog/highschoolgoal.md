@@ -1,11 +1,11 @@
 ---
 title: 初中总结 & 高中计划
-pubDatetime: 2026-06-01T00:00:00+08:00
+pubDatetime: 2026-06-02T00:00:00+08:00
 categories: 随笔
 description: ""
 author: Bcamy
 slug: anxious
-featured: false
+featured: true
 draft: false
 tags:
   - Think
