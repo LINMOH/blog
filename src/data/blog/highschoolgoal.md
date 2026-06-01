@@ -4,7 +4,7 @@ pubDatetime: 2026-06-02T00:00:00+08:00
 categories: 随笔
 description: ""
 author: Bcamy
-slug: anxious
+slug: highschoolgoal
 featured: true
 draft: false
 tags:
