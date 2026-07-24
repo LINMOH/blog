@@ -7,7 +7,7 @@ author: Bcamy
 slug: summer
 featured: false
 draft: false
-tags:
+tags: []
 ---
 
 很焦虑，因为什么事都没干成。
