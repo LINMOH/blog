@@ -50,7 +50,7 @@ tags:
 
 但真相是：不是他变了，是你们根本就没有了解过真正的对方，甚至都不是很了解自己。都觉得自己与众不同，都觉得自己能为当时的誓言负责任。用上一节的框架看，这些关系之所以破碎，是因为它们停留在「喜欢」，从未抵达「爱」。毕业不过是把那层滤镜摘掉了而已。
 
-还有一个常被忽视的事实：很多家长把早恋最大的危害归结为「影响学习」，但其实恋爱是不影响学习的，失恋才是。这一点有研究支持：针对青少年与青年初期群体的研究发现，分手后的反复回想与持续的情绪痛苦、心理适应受损显著相关，分手带来的情绪冲击是青少年时期最强烈的压力源之一 [5][6]。这就形成了一个残酷的不对等：你承担的是失恋级别的风险，换来的却大多是一段耍朋友或搞对象级别的关系。
+还有一个常被忽视的事实：很多家长把早恋最大的危害归结为「影响学习」，但其实恋爱是不影响学习的，失恋才是。这一点有研究支持：针对青少年与青年初期群体的研究发现，分手后的反复回想与持续的情绪痛苦、心理适应受损显著相关，分手带来的情绪冲击是青少年时期最强烈的压力源之一。这就形成了一个残酷的不对等：你承担的是失恋级别的风险，换来的却大多是一段耍朋友或搞对象级别的关系。
 
 ## 爱的资格
 
@@ -60,24 +60,8 @@ tags:
 
 在那之前，所有的誓言，都只是两个人在表演深情。
 
-道理讲了这么多，但现实是：总有人会在高中遇到那个让自己心动的人，也总有些关系值得被认真对待。而且学术研究对青春期恋爱的结论也并非一边倒的否定。恋爱对学业的影响因发展阶段和个体差异而不同 [1]；新近研究进一步发现这种影响是异质性的，对部分学生而言，亲密关系反而对学业表现有支撑作用 [4]；一项基于中国样本的研究甚至发现，处于恋爱关系中的青少年学业表现更好、负面情绪也更少 [3]。发展心理学的主流观点同样认为，青春期亲密关系本身就是人格与社会性发展的一部分，关键在于关系的质量 [2]。
+道理讲了这么多，但现实是：总有人会在高中遇到那个让自己心动的人，也总有些关系值得被认真对待。而且学术研究对青春期恋爱的结论也并非一边倒的否定。恋爱对学业的影响因发展阶段和个体差异而不同；新近研究进一步发现这种影响是异质性的，对部分学生而言，亲密关系反而对学业表现有支撑作用；一项基于中国样本的研究甚至发现，处于恋爱关系中的青少年学业表现更好、负面情绪也更少。发展心理学的主流观点同样认为，青春期亲密关系本身就是人格与社会性发展的一部分，关键在于关系的质量。
 
 绝大多数高中恋爱，确实是一场表演：虚荣的跟风、盲目的模仿、没有资格兑现的誓言。但我也不想否认那极少数的存在，两个有清晰自我认知、有共同目标、愿意为磨合承受痛苦的人，把喜欢磨成了爱。
 
 只是这条路痛苦远大于快乐，它从来不是给大多数人准备的。在那之前，请先成为那个有资格去爱的人。
-
----
-
-## 参考文献
-
-[1] Giordano, P. C., Phelps, K. D., Manning, W. D., et al. (2008). Adolescent academic achievement and romantic relationships. *Social Science Research*. https://www.sciencedirect.com/science/article/pii/S0049089X07000373
-
-[2] Furman, W., & Shaffer, L. (2003). The role of romantic relationships in adolescent development. In *Adolescent Romantic Relations and Sexual Behavior*. https://liberalarts.du.edu/sites/default/files/2021-04/furman-shaffer-2003.pdf
-
-[3] Honghao, J., Po, Y., & Tianyu, Y. (2021). The influence of adolescents' romantic relationship on individual development: Evidence from China. *International Journal of Chinese Education*. https://journals.sagepub.com/doi/abs/10.1177/22125868211070036
-
-[4] Chen, X. (2026). Distraction or support? Heterogeneous effects of adolescent romantic relationships on academic performance. *Journal of Applied Developmental Psychology*. https://www.sciencedirect.com/science/article/pii/S0193397325001662
-
-[5] Mancone, S., Celia, G., Bellizzi, F., Zanon, A., et al. (2025). Emotional and cognitive responses to romantic breakups in adolescents and young adults: the role of rumination and coping mechanisms in life impact. *Frontiers in Psychiatry*. https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2025.1525913/full
-
-[6] Shulman, S., Seiffge-Krenke, I., Scharf, M., et al. (2017). Adolescent depressive symptoms and breakup distress during early emerging adulthood: Associations with the quality of romantic interactions. *Emerging Adulthood*. https://journals.sagepub.com/doi/abs/10.1177/2167696817698900
